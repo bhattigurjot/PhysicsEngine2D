@@ -4,6 +4,8 @@
 
 "use strict;"
 
+let gObjectNum = 0;
+
 function userControl(event) {
     let keycode;
     let width = gEngine.Core.mWidth;
@@ -17,28 +19,38 @@ function userControl(event) {
     }
 
     if (keycode === 70) { // press f
-        console.log('f');
-        context.strokeRect(
-            Math.random()* width * 0.8,    // x position
-            Math.random() * height * 0.8,  // y position
-            Math.random() * 30 + 10,       // width
-            Math.random() * 30 + 10        // height
-        );
+        let r1 = new Rectangle(
+            new Vec2(
+                Math.random() * width * 0.8,
+                Math.random() * height * 0.8
+            ),
+            Math.random() * 30 + 10,
+            Math.random() * 30 + 10);
     }
 
     if (keycode === 71) { // press g
-        console.log('f');
-        context.beginPath();
-        context.arc(
-            Math.random()* width * 0.8,    // x position
-            Math.random() * height * 0.8,  // y position
-            Math.random() * 30 + 10,       // radius
-            0,                             // start angle
-            Math.PI * 2,                   // end angle
-            true                           // anticlockwise?
-        );
-        context.closePath();
-        context.stroke();
+        let r1 = new Circle(
+            new Vec2(
+                Math.random() * width * 0.8,
+                Math.random() * height * 0.8
+            ),
+            Math.random() * 10 + 20);
+    }
+
+    if (keycode >= 48 && keycode <= 57) { // number
+        if (keycode - 48 < gEngine.Core.mAllObjects.length) {
+            gObjectNum = keycode - 48;
+        }
+    }
+    if (keycode === 38) { // up arrow
+        if (gObjectNum > 0) {
+            gObjectNum--;
+        }
+    }
+    if (keycode === 40) { // down arrow
+        if (gObjectNum < gEngine.Core.mAllObjects.length - 1) {
+            gObjectNum++;
+        }
     }
 
 }

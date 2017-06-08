@@ -7,12 +7,15 @@
 let gEngine = {};
 gEngine.Core = (function () {
     let mCanvas, mContext, mWidth = 800, mHeight = 450;
+    let mAllObjects = [];
+
     mCanvas = document.getElementById('canvas');
     mContext = mCanvas.getContext('2d');
     mCanvas.height = mHeight;
     mCanvas.width = mWidth;
 
     let mPublic = {
+        mAllObjects: mAllObjects,
         mWidth: mWidth,
         mHeight: mHeight,
         mContext: mContext
