@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Physics Engine</title>
 </head>
-<body onkeydown="return userControl(event);">
+<body onkeydown="return userControl(event);"
+    onload="let game = new MyGame();
+    gEngine.Core.initializeEngineCore();">
     <table style="padding: 2px">
         <tr>
             <td>
@@ -12,10 +14,21 @@
                     <canvas id="canvas"></canvas>
                 </div>
             </td>
+            <td>
+                <div id="uiEchoString">
+                </div>
+            </td>
         </tr>
     </table>
-    <script type="text/javascript" src="EngineCore/Core.js"></script>
-    <script type="text/javascript" src="UserControl.js"></script>
     <script type="text/javascript" src="Library/Vec2.js"></script>
+
+    <script type="text/javascript" src="RigidBody/RigidShape.js"></script>
+    <script type="text/javascript" src="RigidBody/Circle.js"></script>
+    <script type="text/javascript" src="RigidBody/Rectangle.js"></script>
+
+    <script type="text/javascript" src="EngineCore/Core.js"></script>
+
+    <script type="text/javascript" src="MyGame.js"></script>
+    <script type="text/javascript" src="UserControl.js"></script>
 </body>
 </html>

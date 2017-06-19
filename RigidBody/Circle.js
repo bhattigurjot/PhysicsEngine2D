@@ -13,12 +13,12 @@ let Circle = function (center, radius) {
 };
 
 // Ensuring that Circle class inherits properly from RigidShape
-let prototype = Object.create(RigidShape.prototype);
-prototype.constructor = Circle;
-Circle.prototype = prototype;
+let prototyp = Object.create(RigidShape.prototype);
+prototyp.constructor = Circle;
+Circle.prototype = prototyp;
 
 // Draw Function 
-Rectangle.prototype.draw = function (context) {
+Circle.prototype.draw = function (context) {
   context.beginPath();
   // draw circle
   context.arc(
